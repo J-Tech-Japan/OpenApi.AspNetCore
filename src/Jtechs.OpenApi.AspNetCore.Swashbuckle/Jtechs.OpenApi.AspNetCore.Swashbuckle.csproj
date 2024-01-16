@@ -2,15 +2,31 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>Jtechs.OpenApi.AspNetCore.Swashbuckle</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>J-Tech Group</Authors>
+    <Company>J-Tech-Japan</Company>
+    <PackageDescription>J-Tech Japan OpenApi Extension for Swashbuclke</PackageDescription>
+    <PackageVersion>0.1.0</PackageVersion>
+    <Description>Initial release</Description>
+    <RepositoryUrl>https://github.com/J-Tech-Japan/OpenApi.AspNetCore</RepositoryUrl>
+    <RootNamespace>Jtechs.OpenApi.AspNetCore.Swashbuckle</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+    <PackageReference Include="Jtechs.OpenApi.AspNetCore" Version="0.1.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
     <ProjectReference Include="..\Jtechs.OpenApi.AspNetCore\Jtechs.OpenApi.AspNetCore.csproj" />
   </ItemGroup>
 
