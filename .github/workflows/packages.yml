@@ -1,0 +1,31 @@
+name: nuget package release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      run: |
+        pushd ./src
+        dotnet restore Jtechs.OpenApi.AspNetCore.sln
+    - name: Build with dotnet
+      run: |
+        pushd ./src
+        dotnet build Jtechs.OpenApi.AspNetCore.sln -c Release
+    - name: Pack Jtechs.OpenApi.AspNetCore
+      run: |
+        dotnet nuget push "src/Jtechs.OpenApi.AspNetCore/bin/Release/Jtechs.OpenApi.AspNetCore.${{ github.event.release.tag_name }}.nupkg" --api-key ${{secrets.NUGET_APIKEY}}  --source https://api.nuget.org/v3/index.json
+    - name: Pack Jtechs.OpenApi.AspNetCore.Swashbuckle
+      run: |
+        dotnet nuget push "src/Jtechs.OpenApi.AspNetCore.Swashbuckle/bin/Release/Jtechs.OpenApi.AspNetCore.Swashbuckle.${{ github.event.release.tag_name }}.nupkg" --api-key ${{secrets.NUGET_APIKEY}}  --source https://api.nuget.org/v3/index.json
+  
