@@ -16,7 +16,7 @@ Swashbuclke extension to add enum title and description in the $type section.
 
 if you define following enum in C#
 
-```
+```csharp
 [DisplayNameForEnum("MLB League"), Description("MLB League names")]
 public enum League
 {
@@ -30,13 +30,49 @@ public enum League
 
 You can use this nuget package and write following in your Program.cs
 
-```
+```csharp
 builder.Services.AddSwaggerGen(options =>
 {
     options.SchemaFilter<TitleAndDescriptionSchemaFilter>();
     options.SchemaFilter<EnumSchemaFilter>();
     options.UseAllOfToExtendReferenceSchemas();
 });
+```
+
+this will add more detail information on swagger.json
+
+```json
+
+"components": {
+    "schemas": {
+      "League": {
+        "title": "MLB League",
+        "enum": [
+          1,
+          2
+        ],
+        "type": "integer",
+        "description": "MLB League names",
+        "format": "int32",
+        "x-enum-values": [
+          1,
+          2
+        ],
+        "x-enum-varnames": [
+          "American",
+          "National"
+        ],
+        "x-enum-titles": [
+          "American League",
+          "National League"
+        ],
+        "x-enum-descriptions": [
+          "The American League of Professional Baseball Clubs, known simply as the American League (AL), is one of two leagues that make up Major League Baseball (MLB) in the United States and Canada.",
+          "The National League of Professional Baseball Clubs, known simply as the National League (NL), is the older of two leagues constituting Major League Baseball (MLB) in the United States and Canada."
+        ]
+      },
+    }
+}
 ```
 
 ## License
