@@ -2,11 +2,26 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>Jtechs.OpenApi.AspNetCore</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>J-Tech Group</Authors>
+    <Company>J-Tech-Japan</Company>
+    <PackageDescription>J-Tech Japan OpenApi Extension</PackageDescription>
+    <PackageVersion>0.1.0</PackageVersion>
+    <Description>Initial release</Description>
+    <RepositoryUrl>https://github.com/J-Tech-Japan/OpenApi.AspNetCore</RepositoryUrl>
+    <RootNamespace>Jtechs.OpenApi.AspNetCore</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
     <PackageReference Include="Microsoft.OpenApi" Version="1.6.11" />
   </ItemGroup>
 
