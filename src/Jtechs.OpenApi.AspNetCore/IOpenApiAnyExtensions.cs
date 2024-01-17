@@ -1,6 +1,6 @@
 ﻿using Microsoft.OpenApi.Any;
 
-namespace Jtechs.OpenApi.AspNetCore.Extensions;
+namespace Jtechs.OpenApi.AspNetCore;
 
 public static class IOpenApiAnyExtensions
 {

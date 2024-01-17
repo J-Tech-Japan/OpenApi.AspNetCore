@@ -5,11 +5,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Jtechs.OpenApi.AspNetCore.Swashbuckle</PackageId>
-    <Version>0.1.2</Version>
+    <Version>0.1.3</Version>
     <Authors>J-Tech Group</Authors>
     <Company>J-Tech-Japan</Company>
     <PackageDescription>J-Tech Japan OpenApi Extension for Swashbuclke</PackageDescription>
-    <PackageVersion>0.1.2</PackageVersion>
+    <PackageVersion>0.1.3</PackageVersion>
     <Description>Initial release</Description>
     <RepositoryUrl>https://github.com/J-Tech-Japan/OpenApi.AspNetCore</RepositoryUrl>
     <RootNamespace>Jtechs.OpenApi.AspNetCore.Swashbuckle</RootNamespace>
@@ -23,12 +23,12 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
-    <PackageReference Include="Jtechs.OpenApi.AspNetCore" Version="0.1.2" />
+    <PackageReference Include="Jtechs.OpenApi.AspNetCore" Version="0.1.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
-    <None Include="..\..\LICENSE" Pack="true" PackagePath="\"/>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
     <ProjectReference Include="..\Jtechs.OpenApi.AspNetCore\Jtechs.OpenApi.AspNetCore.csproj" />
   </ItemGroup>
 
