@@ -1,8 +1,20 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+
+/* プロジェクト 'Jtechs.OpenApi.AspNetCore (net8.0)' からのマージされていない変更
+前:
+using System.Reflection;
+後:
+using System.Reflection;
+using Jtechs;
+using Jtechs.OpenApi;
+using Jtechs.OpenApi.AspNetCore;
+using Jtechs.OpenApi.AspNetCore;
+using Jtechs.OpenApi.AspNetCore.Extensions;
+*/
 using System.Reflection;
 
-namespace Jtechs.OpenApi.AspNetCore.Extensions;
+namespace Jtechs.OpenApi.AspNetCore;
 
 public static class AttributeExtensions
 {
