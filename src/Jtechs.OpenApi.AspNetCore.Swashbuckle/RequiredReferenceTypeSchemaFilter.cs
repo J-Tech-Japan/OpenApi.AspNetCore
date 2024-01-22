@@ -21,10 +21,11 @@ public class RequiredReferenceTypeSchemaFilter : ISchemaFilter
                 continue;
 
             if (context.Type.GetProperties().SingleOrDefault(n =>
-                    n.Name.Equals(property.Key, StringComparison.CurrentCultureIgnoreCase))
-                    is not PropertyInfo propertyInfo
-                || new NullabilityInfoContext().Create(propertyInfo).ReadState != NullabilityState.Nullable)
-                schema.Required.Add(property.Key);
+                    n.Name.Equals(property.Key, StringComparison.OrdinalIgnoreCase)
+                ) is PropertyInfo propertyInfo && propertyInfo.IsNullable())
+                continue;
+
+            schema.Required.Add(property.Key);
         }
     }
 }

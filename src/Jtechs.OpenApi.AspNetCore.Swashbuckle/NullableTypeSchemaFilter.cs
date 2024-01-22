@@ -11,13 +11,11 @@ public class NullableTypeSchemaFilter : ISchemaFilter
         schema.Nullable = context switch
         {
             { MemberInfo: { MemberType: MemberTypes.Property, DeclaringType: not null } mi }
-                when mi.DeclaringType.GetProperty(mi.Name) is PropertyInfo pi
-                =>
-                new NullabilityInfoContext().Create(pi).ReadState == NullabilityState.Nullable
+                when mi.DeclaringType.GetProperty(mi.Name) is PropertyInfo propertyInfo
+                => propertyInfo.IsNullable()
             ,
-            { ParameterInfo: { } pi }
-                =>
-                new NullabilityInfoContext().Create(pi).ReadState == NullabilityState.Nullable
+            { ParameterInfo: { } parameterInfo }
+                => parameterInfo.IsNullable()
             ,
             _ => schema.Nullable
         };
