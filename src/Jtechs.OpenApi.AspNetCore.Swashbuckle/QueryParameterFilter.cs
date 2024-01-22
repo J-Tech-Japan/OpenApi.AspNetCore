@@ -39,12 +39,20 @@ public class QueryParameterFilter : IParameterFilter
             Description = parameter.Schema.Description,
         };
 
-        // Nullable
-        parameter.Schema.Nullable =
-            new NullabilityInfoContext().Create(context.ParameterInfo).ReadState == NullabilityState.Nullable;
-
-        // Required
-        parameter.Required = !parameter.Schema.Nullable
-            || context.ParameterInfo.GetAttribute<RequiredAttribute>() is not null;
+        // Nullable & Required
+        (parameter.Schema.Nullable, parameter.Required) = context switch
+        {
+            { PropertyInfo: { } propertyInfo } =>
+                propertyInfo.IsNullable()
+                ? (true, propertyInfo.GetAttribute<RequiredAttribute>() is not null)
+                : (false, true)
+            ,
+            { ParameterInfo: { } parameterInfo } =>
+                parameterInfo.IsNullable()
+                ? (true, parameterInfo.GetAttribute<RequiredAttribute>() is not null)
+                : (false, true)
+            ,
+            _ => (parameter.Schema.Nullable, parameter.Required)
+        };
     }
 }

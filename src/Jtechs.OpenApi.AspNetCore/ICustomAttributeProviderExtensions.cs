@@ -22,4 +22,10 @@ public static class ICustomAttributeProviderExtensions
             ?? attributes.FirstOrDefault(f => f.GetType().BaseType == typeof(T)) as T
             ?? attributes.FirstOrDefault(f => (f as T) is not null) as T;
     }
+
+    public static bool IsNullable(this PropertyInfo propertyInfo) =>
+        new NullabilityInfoContext().Create(propertyInfo).ReadState == NullabilityState.Nullable;
+
+    public static bool IsNullable(this ParameterInfo parameterInfo) =>
+        new NullabilityInfoContext().Create(parameterInfo).ReadState == NullabilityState.Nullable;
 }
