@@ -5,10 +5,14 @@ namespace Jtechs.OpenApi.AspNetCore.Swashbuckle;
 
 public static class SwaggerGenExtensions
 {
-    public static void AddJtechsSchemaFilters(this SwaggerGenOptions options)
+    public static void AddJtechsOpenApiFilters(this SwaggerGenOptions options)
     {
-        options.SchemaFilter<TitleAndDescriptionSchemaFilter>();
-        options.SchemaFilter<EnumSchemaFilter>();
         options.UseAllOfToExtendReferenceSchemas();
+        options.SchemaFilter<EnumSchemaFilter>();
+        options.SchemaFilter<NullableTypeSchemaFilter>();
+        options.SchemaFilter<RequiredReferenceTypeSchemaFilter>();
+        options.SchemaFilter<TitleSchemaFilter>();
+        options.SchemaFilter<DescriptionSchemaFilter>();
+        options.ParameterFilter<QueryParameterFilter>();
     }
 }
