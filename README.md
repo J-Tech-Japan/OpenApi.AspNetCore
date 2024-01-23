@@ -33,9 +33,7 @@ You can use this nuget package and write following in your Program.cs
 ```csharp
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SchemaFilter<TitleAndDescriptionSchemaFilter>();
-    options.SchemaFilter<EnumSchemaFilter>();
-    options.UseAllOfToExtendReferenceSchemas();
+    options.AddJtechsOpenApiFilters();
 });
 ```
 
