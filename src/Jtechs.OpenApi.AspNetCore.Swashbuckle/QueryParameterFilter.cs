@@ -25,19 +25,25 @@ public class QueryParameterFilter : IParameterFilter
             ,
             _ => null
         };
-        parameter.Schema = enumTypeName is null ? parameter.Schema : new OpenApiSchema()
+        if (enumTypeName is not null)
         {
-            AllOf = [new OpenApiSchema()
+            if (!context.SchemaRepository.TryLookupByType(context.ParameterInfo.ParameterType, out var referenceSchema))
+                _ = context.SchemaGenerator.GenerateSchema(context.ParameterInfo.ParameterType, context.SchemaRepository);
+            parameter.Schema = new OpenApiSchema()
             {
-                Reference = new OpenApiReference()
+                AllOf = [new OpenApiSchema()
                 {
-                    Id = enumTypeName,
-                    Type = ReferenceType.Schema
-                }
-            }],
-            Title = parameter.Schema.Title,
-            Description = parameter.Schema.Description,
-        };
+                    Reference = referenceSchema?.Reference
+                        ?? new OpenApiReference()
+                        {
+                            Id = enumTypeName,
+                            Type = ReferenceType.Schema
+                        }
+                }],
+                Title = parameter.Schema.Title,
+                Description = parameter.Schema.Description,
+            };
+        }
 
         // Nullable & Required
         (parameter.Schema.Nullable, parameter.Required) = context switch
