@@ -10,7 +10,7 @@ public static class SwaggerGenExtensions
         options.UseAllOfToExtendReferenceSchemas();
         options.SchemaFilter<EnumSchemaFilter>();
         options.SchemaFilter<NullableTypeSchemaFilter>();
-        options.SchemaFilter<RequiredReferenceTypeSchemaFilter>();
+        options.SchemaFilter<RequiredPropertySchemaFilter>();
         options.SchemaFilter<TitleSchemaFilter>();
         options.SchemaFilter<DescriptionSchemaFilter>();
         options.ParameterFilter<QueryParameterFilter>();
