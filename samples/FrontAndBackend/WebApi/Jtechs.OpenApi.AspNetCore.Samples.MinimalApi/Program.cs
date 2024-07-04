@@ -38,6 +38,7 @@ memberGroup.MapGet("/",
     {
         return Results.Ok(new List<Member>());
     })
+    .WithName("ListMembers")
     .Produces<IEnumerable<Member>>(StatusCodes.Status200OK);
 
 memberGroup.MapGet("/{id}",
@@ -45,6 +46,7 @@ memberGroup.MapGet("/{id}",
     {
         return Results.NotFound();
     })
+    .WithName("GetMember")
     .Produces<Member>(StatusCodes.Status200OK)
     .Produces(StatusCodes.Status404NotFound);
 
@@ -53,6 +55,7 @@ memberGroup.MapPost("/",
     {
         return Results.Created($"/Members/{newMember.Id}", null);
     })
+    .WithName("CreateMember")
     .Produces(StatusCodes.Status201Created);
 
 memberGroup.MapPut("/{id}",
@@ -60,6 +63,7 @@ memberGroup.MapPut("/{id}",
     {
         return Results.Ok();
     })
+    .WithName("UpdateMember")
     .Produces(StatusCodes.Status200OK);
 
 memberGroup.MapDelete("/{id}",
@@ -67,6 +71,7 @@ memberGroup.MapDelete("/{id}",
     {
         return Results.NoContent();
     })
+    .WithName("DeleteMember")
     .Produces(StatusCodes.Status204NoContent);
 
 app.Run();

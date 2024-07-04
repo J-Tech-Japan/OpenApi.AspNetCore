@@ -10,14 +10,14 @@ namespace Jtechs.OpenApi.AspNetCore.Samples.ControllerApi.Controllers;
 [Produces("application/json")]
 public class MembersController : ControllerBase
 {
-    [HttpGet]
+    [HttpGet(Name = "ListMembers")]
     [ProducesResponseType<IEnumerable<Member>>(StatusCodes.Status200OK)]
     public ActionResult<IEnumerable<Member>> List([FromQuery] MemberQueryParameter queryParameter)
     {
         return Ok(new List<Member>());
     }
 
-    [HttpGet("{id}")]
+    [HttpGet(template: "{id}", Name = "GetMember")]
     [ProducesResponseType<Member>(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public IActionResult Get([FromRoute] Guid id)
@@ -25,21 +25,21 @@ public class MembersController : ControllerBase
         return NotFound();
     }
 
-    [HttpPost]
+    [HttpPost(Name = "CreateMember")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     public IActionResult Create([FromBody][Required] Member newMember)
     {
         return Created($"/Members/{newMember.Id}", null);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut(template: "{id}", Name = "UpdateMember")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public IActionResult Update([FromRoute] Guid id, [FromBody][Required] Member existingMember)
     {
         return Ok();
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete(template: "{id}", Name = "DeleteMember")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public IActionResult Delete([FromRoute] Guid id)
     {
