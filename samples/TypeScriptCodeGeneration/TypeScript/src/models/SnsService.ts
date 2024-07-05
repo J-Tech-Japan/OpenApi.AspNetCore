@@ -1,9 +1,5 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-export enum SnsService {
-    Facebook = 1,
-    Instagram = 2,
-    X = 3,
-}
+export type SnsService = 'Facebook' | 'Instagram' | 'X';

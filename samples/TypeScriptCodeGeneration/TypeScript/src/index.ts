@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -8,10 +8,10 @@ export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
 export type { Member } from './models/Member';
-export { MembershipLevel } from './models/MembershipLevel';
+export type { MembershipLevel } from './models/MembershipLevel';
 export type { Name } from './models/Name';
 export type { SnsAccount } from './models/SnsAccount';
-export { SnsService } from './models/SnsService';
+export type { SnsService } from './models/SnsService';
 
 export { $Member } from './schemas/$Member';
 export { $MembershipLevel } from './schemas/$MembershipLevel';

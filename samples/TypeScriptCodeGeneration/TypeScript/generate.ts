@@ -7,7 +7,7 @@ generate({
   output: "./src",
   exportSchemas: true,
   useOptions: true,
-  useUnionTypes: false,
+  useUnionTypes: true,
 })
   .then(() => {
     console.log("Code generated successfully!");
