@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "generate": "npx ts-node ./generate.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "openapi-typescript-codegen": "github:j-tech-japan/openapi-typescript-codegen#semver:^0.29.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  }
+}

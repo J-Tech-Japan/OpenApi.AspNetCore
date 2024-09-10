@@ -6,11 +6,13 @@ namespace Jtechs.OpenApi.AspNetCore;
 
 public static class ICustomAttributeProviderExtensions
 {
-    public static string? GetDisplayName<T>(this T customAttributeProvider, bool inherit = false) where T : ICustomAttributeProvider =>
+    public static string? GetDisplayName<T>(this T customAttributeProvider, bool inherit = false)
+        where T : ICustomAttributeProvider =>
         customAttributeProvider.GetAttribute<DisplayNameAttribute>(inherit)?.DisplayName
         ?? customAttributeProvider.GetAttribute<DisplayAttribute>(inherit)?.Name;
 
-    public static string? GetDescription<T>(this T customAttributeProvider, bool inherit = false) where T : ICustomAttributeProvider =>
+    public static string? GetDescription<T>(this T customAttributeProvider, bool inherit = false)
+        where T : ICustomAttributeProvider =>
         customAttributeProvider.GetAttribute<DescriptionAttribute>(inherit)?.Description
         ?? customAttributeProvider.GetAttribute<DisplayAttribute>(inherit)?.Description;
 

@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace Jtechs.OpenApi.AspNetCore.Swashbuckle;
 
-public class RequiredReferenceTypeSchemaFilter : ISchemaFilter
+public class RequiredPropertySchemaFilter : ISchemaFilter
 {
     public void Apply(OpenApiSchema schema, SchemaFilterContext context)
     {
@@ -20,9 +20,10 @@ public class RequiredReferenceTypeSchemaFilter : ISchemaFilter
             if (schema.Required.Any(n => n == property.Key))
                 continue;
 
-            if (context.Type.GetProperties().SingleOrDefault(n =>
-                    n.Name.Equals(property.Key, StringComparison.OrdinalIgnoreCase)
-                ) is PropertyInfo propertyInfo && propertyInfo.IsNullable())
+            if (context.Type.GetProperties()
+                    .SingleOrDefault(n => n.Name.Equals(property.Key, StringComparison.OrdinalIgnoreCase))
+                        is PropertyInfo propertyInfo
+                && propertyInfo.IsNullable())
                 continue;
 
             schema.Required.Add(property.Key);

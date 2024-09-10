@@ -1,7 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.ComponentModel.DataAnnotations;
-using System.Reflection;
 
 namespace Jtechs.OpenApi.AspNetCore.Swashbuckle;
 
