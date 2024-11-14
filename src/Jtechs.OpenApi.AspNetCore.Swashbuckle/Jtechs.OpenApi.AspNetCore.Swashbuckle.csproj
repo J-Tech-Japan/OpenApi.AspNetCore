@@ -5,12 +5,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Jtechs.OpenApi.AspNetCore.Swashbuckle</PackageId>
-    <Version>0.2.2</Version>
+    <Version>0.2.3</Version>
     <Authors>J-Tech Group</Authors>
     <Company>J-Tech-Japan</Company>
     <PackageDescription>J-Tech Japan OpenApi Extension for Swashbuclke</PackageDescription>
-    <PackageVersion>0.2.2</PackageVersion>
-    <Description>Initial release</Description>
+    <PackageVersion>0.2.3</PackageVersion>
+    <Description>add .NET 9</Description>
     <RepositoryUrl>https://github.com/J-Tech-Japan/OpenApi.AspNetCore</RepositoryUrl>
     <RootNamespace>Jtechs.OpenApi.AspNetCore.Swashbuckle</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -18,11 +18,11 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <TargetFrameworks>net8.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.6.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="7.0.0" />
     <PackageReference Include="Jtechs.OpenApi.AspNetCore" Version="0.2.2" />
   </ItemGroup>
 
