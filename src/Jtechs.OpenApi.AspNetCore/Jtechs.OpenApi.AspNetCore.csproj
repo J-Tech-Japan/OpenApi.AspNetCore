@@ -5,12 +5,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Jtechs.OpenApi.AspNetCore</PackageId>
-    <Version>0.2.3</Version>
+    <Version>0.2.4</Version>
     <Authors>J-Tech Group</Authors>
     <Company>J-Tech-Japan</Company>
     <PackageDescription>J-Tech Japan OpenApi Extension</PackageDescription>
-    <PackageVersion>0.2.3</PackageVersion>
-    <Description>add .NET 9</Description>
+    <PackageVersion>0.2.4</PackageVersion>
+    <Description>add SBOM</Description>
     <RepositoryUrl>https://github.com/J-Tech-Japan/OpenApi.AspNetCore</RepositoryUrl>
     <RootNamespace>Jtechs.OpenApi.AspNetCore</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -19,12 +19,17 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <GenerateSBOM>true</GenerateSBOM>
 </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\README.md" Pack="true" PackagePath="\" />
     <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
     <PackageReference Include="Microsoft.OpenApi" Version="1.6.22" />
+    <PackageReference Include="Microsoft.Sbom.Targets" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
